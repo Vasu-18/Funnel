@@ -15,35 +15,34 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title:
-    "Communication Mastery Workshop — Master Public Speaking & Leadership | SpeakLab",
+  title: "Capital Case",
   description:
-    "Join India's #1 communication coach in a LIVE 2-hour masterclass. Learn public speaking, salary negotiation, leadership communication & more. 1,30,000+ professionals trained. Register for ₹99.",
+    "Book a free 15-minute strategic business consultation with Parikshit Mukesh. Get personalized insights on scaling, investor readiness, operational efficiency, and business growth strategy.",
   keywords: [
-    "communication workshop",
-    "public speaking course",
-    "leadership training",
-    "salary negotiation",
-    "communication skills",
-    "English fluency",
-    "professional development",
-    "career growth",
-    "soft skills training",
-    "live workshop India",
+    "business consultation",
+    "free strategy call",
+    "business advisory",
+    "MSME consulting",
+    "startup consulting",
+    "business growth strategy",
+    "investor readiness",
+    "scaling business",
+    "strategic consulting India",
+    "free business advice",
   ],
   openGraph: {
-    title: "Communication Mastery Workshop | SpeakLab",
+    title: "Free 15-Minute Business Consultation | Capital Case",
     description:
-      "LIVE 2-hour masterclass to transform your communication, confidence, and career. Only ₹99. Limited seats.",
+      "Book your free strategic business consultation. Get personalized insights on scaling, growth, and operational efficiency.",
     type: "website",
     locale: "en_IN",
-    siteName: "SpeakLab",
+    siteName: "Capital Case",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Communication Mastery Workshop | SpeakLab",
+    title: "Free 15-Minute Business Consultation | Capital Case",
     description:
-      "LIVE 2-hour masterclass to transform your communication, confidence, and career. Only ₹99.",
+      "Book your free strategic business consultation. Personalized insights for founders and business leaders.",
   },
   robots: {
     index: true,
@@ -59,45 +58,34 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${outfit.variable}`} suppressHydrationWarning>
       <head>
-        {/* Structured Data — Event Schema */}
+        {/* Structured Data — Professional Service Schema */}
+      </head>
+      <body className="min-h-screen antialiased font-body bg-white text-dark-900 overflow-x-hidden">
+        {children}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "EducationEvent",
-              name: "Communication Mastery Workshop",
+              "@type": "ProfessionalService",
+              name: "Capital Case",
               description:
-                "LIVE 2-hour masterclass on public speaking, leadership communication, and salary negotiation.",
-              startDate: "2026-05-25T11:00:00+05:30",
-              endDate: "2026-05-25T13:00:00+05:30",
-              eventAttendanceMode:
-                "https://schema.org/OnlineEventAttendanceMode",
-              eventStatus: "https://schema.org/EventScheduled",
-              location: {
-                "@type": "VirtualLocation",
-                url: "https://zoom.us",
-              },
-              organizer: {
-                "@type": "Organization",
-                name: "SpeakLab",
-              },
-              performer: {
+                "Strategic business consulting for founders, entrepreneurs, and business leaders. Free 15-minute consultation calls.",
+              provider: {
                 "@type": "Person",
-                name: "Arjun Mehta",
+                name: "Parikshit Mukesh",
+                jobTitle: "Founder & Managing Director",
               },
+              areaServed: "Worldwide",
               offers: {
                 "@type": "Offer",
-                price: "99",
+                price: "0",
                 priceCurrency: "INR",
-                availability: "https://schema.org/LimitedAvailability",
+                description: "Free 15-minute strategic business consultation",
               },
             }),
           }}
         />
-      </head>
-      <body className="min-h-screen antialiased font-body bg-white text-dark-900 overflow-x-hidden">
-        {children}
       </body>
     </html>
   );

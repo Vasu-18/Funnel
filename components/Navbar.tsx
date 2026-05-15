@@ -5,6 +5,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { Menu, X, Sparkles } from "lucide-react";
 import CTAButton from "./CTAButton";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -18,15 +20,17 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToRegister = () => {
+  const router = useRouter();
+
+  const handleBookClick = () => {
     setIsMobileOpen(false);
-    const el = document.getElementById("register");
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+    router.push("/book");
   };
 
   const navLinks = [
-    { label: "What You Learn", href: "#learn" },
-    { label: "Testimonials", href: "#testimonials" },
+    { label: "Benefits", href: "#benefits" },
+    { label: "About", href: "#about" },
+    { label: "Reviews", href: "#reviews" },
     { label: "FAQ", href: "#faq" },
   ];
 
@@ -44,31 +48,24 @@ export default function Navbar() {
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-          {/* Logo */}
-          <a href="#" className="flex items-center gap-2 group">
+          <Link href="/" className="flex items-center gap-2 group">
             <Sparkles className="w-6 h-6 text-gold-400 transition-transform group-hover:rotate-12" />
             <span className="font-heading font-bold text-lg text-white">
-              Speak<span className="text-gold-400">Lab</span>
+              Capital<span className="text-gold-400">Case</span>
             </span>
-          </a>
+          </Link>
 
-          {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-sm text-dark-300 hover:text-white transition-colors duration-200"
-              >
+              <a key={link.href} href={link.href} className="text-sm text-dark-300 hover:text-white transition-colors duration-200">
                 {link.label}
               </a>
             ))}
-            <CTAButton onClick={scrollToRegister} size="default" icon={false}>
-              Register Now — ₹99
+            <CTAButton onClick={handleBookClick} size="default" icon={false}>
+              Book Free Call
             </CTAButton>
           </div>
 
-          {/* Mobile Toggle */}
           <button
             onClick={() => setIsMobileOpen(!isMobileOpen)}
             className="md:hidden text-white p-2"
@@ -79,7 +76,6 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {isMobileOpen && (
           <motion.div
@@ -90,22 +86,12 @@ export default function Navbar() {
           >
             <div className="px-4 py-4 space-y-3">
               {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setIsMobileOpen(false)}
-                  className="block text-sm text-dark-300 hover:text-white py-2 transition-colors"
-                >
+                <a key={link.href} href={link.href} onClick={() => setIsMobileOpen(false)} className="block text-sm text-dark-300 hover:text-white py-2 transition-colors">
                   {link.label}
                 </a>
               ))}
-              <CTAButton
-                onClick={scrollToRegister}
-                size="lg"
-                className="w-full mt-2"
-                icon={false}
-              >
-                Register Now — ₹99
+              <CTAButton onClick={handleBookClick} size="lg" className="w-full mt-2" icon={false}>
+                Book Free Call
               </CTAButton>
             </div>
           </motion.div>

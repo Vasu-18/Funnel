@@ -2,19 +2,17 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useExitIntent } from "@/hooks/useExitIntent";
-import { X, Clock, AlertTriangle } from "lucide-react";
+import { X, Phone, AlertTriangle } from "lucide-react";
 import CTAButton from "./CTAButton";
+import { useRouter } from "next/navigation";
 
-interface ExitIntentPopupProps {
-  onRegister: () => void;
-}
-
-export default function ExitIntentPopup({ onRegister }: ExitIntentPopupProps) {
+export default function ExitIntentPopup() {
+  const router = useRouter();
   const { showPopup, closePopup } = useExitIntent(5000);
 
   const handleRegister = () => {
     closePopup();
-    onRegister();
+    router.push("/book");
   };
 
   return (
@@ -36,50 +34,36 @@ export default function ExitIntentPopup({ onRegister }: ExitIntentPopupProps) {
             onClick={(e) => e.stopPropagation()}
             className="relative w-full max-w-lg bg-dark-900 rounded-2xl border border-gold-500/20 shadow-2xl overflow-hidden"
           >
-            <button
-              onClick={closePopup}
-              className="absolute top-4 right-4 text-dark-400 hover:text-white z-10"
-              aria-label="Close"
-            >
+            <button onClick={closePopup} className="absolute top-4 right-4 text-dark-400 hover:text-white z-10" aria-label="Close">
               <X className="w-5 h-5" />
             </button>
 
-            {/* Warning strip */}
-            <div className="bg-gradient-to-r from-red-500/10 via-orange-500/10 to-red-500/10 border-b border-red-500/20 px-6 py-3 flex items-center gap-2">
-              <AlertTriangle className="w-4 h-4 text-orange-400" />
-              <span className="text-orange-300 text-sm font-medium">
+            <div className="bg-gradient-to-r from-gold-500/10 via-gold-500/5 to-gold-500/10 border-b border-gold-500/20 px-6 py-3 flex items-center gap-2">
+              <AlertTriangle className="w-4 h-4 text-gold-400" />
+              <span className="text-gold-300 text-sm font-medium">
                 Wait! Don&apos;t miss this opportunity
               </span>
             </div>
 
             <div className="p-6 sm:p-8 text-center">
               <div className="w-16 h-16 rounded-full bg-gold-500/10 flex items-center justify-center mx-auto mb-4">
-                <Clock className="w-8 h-8 text-gold-400" />
+                <Phone className="w-8 h-8 text-gold-400" />
               </div>
 
               <h3 className="text-2xl font-heading font-bold text-white mb-2">
-                Your Seat is Almost Gone!
+                Get Your Free Strategy Session
               </h3>
               <p className="text-dark-300 mb-6">
-                Only <span className="text-gold-400 font-bold">47 seats</span>{" "}
-                left at ₹99. Prices will increase to ₹2,999 soon. Don&apos;t let
-                this opportunity slip away.
+                A 15-minute call that could change the trajectory of your business.
+                Get personalized insights — <span className="text-gold-400 font-bold">completely free</span>.
               </p>
 
-              <CTAButton
-                onClick={handleRegister}
-                size="xl"
-                pulse
-                className="w-full mb-4"
-              >
-                Yes, Save My Seat!
+              <CTAButton onClick={handleRegister} size="xl" pulse className="w-full mb-4">
+                Yes, Book My Free Call!
               </CTAButton>
 
-              <button
-                onClick={closePopup}
-                className="text-dark-500 text-sm hover:text-dark-300 transition-colors"
-              >
-                No thanks, I don&apos;t want to improve my communication
+              <button onClick={closePopup} className="text-dark-500 text-sm hover:text-dark-300 transition-colors">
+                No thanks, I&apos;ll figure it out myself
               </button>
             </div>
           </motion.div>

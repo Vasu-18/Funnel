@@ -3,23 +3,23 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import CTAButton from "./CTAButton";
+import { useRouter } from "next/navigation";
 
 export default function StickyMobileCTA() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      // Show after scrolling past the hero
       setIsVisible(window.scrollY > 600);
     };
-
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToRegister = () => {
-    const el = document.getElementById("register");
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+  const router = useRouter();
+
+  const handleBookClick = () => {
+    router.push("/book");
   };
 
   return (
@@ -36,17 +36,12 @@ export default function StickyMobileCTA() {
             <div className="flex items-center gap-3">
               <div className="flex-1 min-w-0">
                 <p className="text-white text-sm font-semibold truncate">
-                  Register Now — <span className="text-gold-400">₹99 Only</span>
+                  Book Your <span className="text-gold-400">Free Call</span>
                 </p>
-                <p className="text-dark-400 text-xs">Limited seats available</p>
+                <p className="text-dark-400 text-xs">15-min strategy session</p>
               </div>
-              <CTAButton
-                onClick={scrollToRegister}
-                size="default"
-                pulse
-                className="shrink-0 text-sm"
-              >
-                Book Seat
+              <CTAButton onClick={handleBookClick} size="default" pulse className="shrink-0 text-sm">
+                Book Now
               </CTAButton>
             </div>
           </div>

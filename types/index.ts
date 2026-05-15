@@ -2,11 +2,8 @@ export interface Testimonial {
   id: number;
   name: string;
   role: string;
-  company: string;
+  location: string;
   content: string;
-  rating: number;
-  image: string;
-  isVideo?: boolean;
 }
 
 export interface FAQItem {
@@ -14,50 +11,24 @@ export interface FAQItem {
   answer: string;
 }
 
-export interface PainPoint {
-  icon: string;
-  title: string;
-  description: string;
+export interface ConsultationBenefit {
+  text: string;
 }
 
-export interface LearningModule {
-  icon: string;
-  title: string;
-  description: string;
-}
-
-export interface BonusItem {
-  title: string;
-  description: string;
-  value: string;
-  icon: string;
-}
-
-export interface PersonaCard {
-  icon: string;
-  title: string;
-  description: string;
-}
-
-export interface SpeakerStat {
-  value: string;
-  label: string;
-}
-
-export interface WorkshopDetails {
-  date: string;
-  time: string;
-  duration: string;
-  originalPrice: string;
-  currentPrice: string;
-  seatsLeft: number;
-  totalTransformed: string;
-  language: string;
-}
-
-export interface RegistrationFormData {
+export interface SpeakerInfo {
   name: string;
-  email: string;
+  tag: string;
+  bio: string;
+  education: string[];
+  leadership: string[];
+  certifications: string[];
+}
+
+export interface ConsultationBookingFormData {
+  name: string;
   phone: string;
-  profession: string;
+  alternateNumber?: string;
+  currentRevenue: string;
+  businessType: string;
+  startedBusinessYear: string;
 }

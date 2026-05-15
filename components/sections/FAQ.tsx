@@ -13,7 +13,7 @@ export default function FAQ() {
   return (
     <section
       id="faq"
-      className="relative py-16 md:py-24 lg:py-32 bg-gradient-to-b from-white to-dark-50/30 text-dark-900 overflow-hidden section-padding"
+      className="relative py-16 md:py-24 lg:py-32 bg-dark-gradient text-white overflow-hidden section-padding"
     >
       <div className="mx-auto max-w-3xl">
         <div className="text-center mb-12 lg:mb-16">
@@ -43,8 +43,8 @@ export default function FAQ() {
               className={cn(
                 "rounded-xl border transition-all duration-300",
                 openIndex === index
-                  ? "bg-white border-gold-200 shadow-sm"
-                  : "bg-white/50 border-dark-100 hover:border-dark-200"
+                  ? "bg-dark-800 border-gold-500/50 shadow-sm"
+                  : "bg-dark-800/50 border-white/5 hover:border-white/10"
               )}
             >
               <button
@@ -58,8 +58,8 @@ export default function FAQ() {
                   className={cn(
                     "font-heading font-semibold text-sm sm:text-base pr-4",
                     openIndex === index
-                      ? "text-dark-900"
-                      : "text-dark-700"
+                      ? "text-white"
+                      : "text-dark-300"
                   )}
                 >
                   {faq.question}
@@ -82,7 +82,7 @@ export default function FAQ() {
                     className="overflow-hidden"
                   >
                     <div className="px-5 pb-5 pt-0">
-                      <p className="text-dark-500 text-sm leading-relaxed">
+                      <p className="text-dark-300 text-sm leading-relaxed">
                         {faq.answer}
                       </p>
                     </div>
