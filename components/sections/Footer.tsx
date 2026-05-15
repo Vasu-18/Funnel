@@ -18,14 +18,17 @@ export default function Footer() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <Link href="/" className="flex items-center mb-4 group">
+            <Link href="/" className="flex items-center gap-2 mb-4 group">
               <Image 
                 src="/logo.png" 
                 alt="Capital Case Logo" 
-                width={160} 
-                height={40} 
-                className="h-8 w-auto object-contain transition-transform group-hover:scale-105" 
+                width={48} 
+                height={48} 
+                className="h-10 w-auto object-contain transition-transform group-hover:scale-105" 
               />
+              <span className="font-heading font-bold text-lg text-white">
+                Capital<span className="text-gold-400">Case</span>
+              </span>
             </Link>
             <p className="text-dark-400 text-sm leading-relaxed max-w-xs">
               Strategic business consulting for founders, entrepreneurs, and
