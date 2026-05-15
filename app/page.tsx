@@ -27,9 +27,7 @@ const StickyMobileCTA = dynamic(
   () => import("@/components/StickyMobileCTA")
 );
 const WhatsAppButton = dynamic(() => import("@/components/WhatsAppButton"));
-const ExitIntentPopup = dynamic(
-  () => import("@/components/ExitIntentPopup")
-);
+
 
 export default function Home() {
   return (
@@ -52,7 +50,7 @@ export default function Home() {
       {/* Interactive overlays */}
       <StickyMobileCTA />
       <WhatsAppButton />
-      <ExitIntentPopup />
+
     </>
   );
 }

@@ -3,10 +3,11 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { Menu, X, Sparkles } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import CTAButton from "./CTAButton";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -48,11 +49,14 @@ export default function Navbar() {
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 group">
-            <Sparkles className="w-6 h-6 text-gold-400 transition-transform group-hover:rotate-12" />
-            <span className="font-heading font-bold text-lg text-white">
-              Capital<span className="text-gold-400">Case</span>
-            </span>
+          <Link href="/" className="flex items-center group">
+            <Image 
+              src="/logo.png" 
+              alt="Capital Case Logo" 
+              width={160} 
+              height={40} 
+              className="h-8 w-auto object-contain transition-transform group-hover:scale-105" 
+            />
           </Link>
 
           <div className="hidden md:flex items-center gap-8">
