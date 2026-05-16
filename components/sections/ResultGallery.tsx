@@ -18,9 +18,9 @@ export default function ResultGallery() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   // Divide images into 3 columns for masonry
-  const col1 = IMAGES.filter((_, i) => i % 3 === 0);
-  const col2 = IMAGES.filter((_, i) => i % 3 === 1);
-  const col3 = IMAGES.filter((_, i) => i % 3 === 2);
+  const col1 = IMAGES.filter((src, i) => i % 3 === 0 && !src.includes('Client17.jpeg'));
+  const col2 = IMAGES.filter((src, i) => i % 3 === 1 && !src.includes('Client17.jpeg'));
+  const col3 = IMAGES.filter((src, i) => i % 3 === 2 && !src.includes('Client17.jpeg'));
 
   return (
     <section
