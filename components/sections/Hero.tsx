@@ -60,7 +60,7 @@ export default function Hero() {
               <span className="text-gradient-gold">
                 Strategic Business
               </span>{" "}
-              Consultation
+              Validation
             </motion.h1>
 
             {/* Subheadline */}
@@ -72,7 +72,7 @@ export default function Hero() {
               <span className="text-white font-semibold">
                 {SPEAKER.name}
               </span>{" "}
-              — a foresight-driven MSME strategist who has helped 300+ businesses
+              — a 4th Gen Entrepreneur, Foresight-driven strategist who has helped 300+ businesses
               unlock growth, clarity, and scale.
             </motion.p>
 
@@ -84,6 +84,7 @@ export default function Hero() {
               {[
                 "Identify hidden growth blockers",
                 "Get actionable strategic advice",
+                "Our USP is creating USPs",
                 "100% free, no obligations",
               ].map((benefit) => (
                 <div key={benefit} className="flex items-center gap-2.5 text-dark-300">

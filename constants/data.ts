@@ -7,9 +7,9 @@ import type {
 
 // ─── Speaker Info ──────────────────────────────────────────────
 export const SPEAKER: SpeakerInfo = {
-  name: "Parikshit Mukesh",
+  name: "Parikshith Mukesh",
   tag: "4th Generation Entrepreneur",
-  bio: `A foresight-driven MSME strategist who specializes in transforming founder-led businesses into institution-ready, capital-accessible enterprises with global scale potential. Mentored by Dr. Riel Miller – former Head of Futures Literacy at UNESCO, also known as the Father of Futures Literacy.`,
+  bio: `A foresight-driven strategist who specializes in transforming founder-led businesses into institution-ready, capital-accessible enterprises with global scale potential. Mentored by Dr. Riel Miller – former Head of Futures Literacy at UNESCO, also known as the Father of Futures Literacy.`,
   education: [
     "DBA Candidate – Ecole des Ponts Business School",
     "MBA Innovation – Hult International Business School",
@@ -17,7 +17,7 @@ export const SPEAKER: SpeakerInfo = {
   ],
   leadership: [
     "Founder & Managing Director – Capital Case",
-    "Co-Founder & CSO – Capital Case LLC FZ (300+ MSMEs)",
+    "Fellow at ReTech Center Ecole Des Ponts Business School (Paris)",
     "Co-Founder & Director – &Co.",
   ],
   certifications: [
