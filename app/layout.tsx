@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
+import MetaPixel from "@/components/MetaPixel";
+import { META_PIXEL_ID } from "@/lib/meta-pixel";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -61,6 +63,18 @@ export default function RootLayout({
         {/* Structured Data — Professional Service Schema */}
       </head>
       <body className="min-h-screen antialiased font-body bg-white text-dark-900 overflow-x-hidden">
+        {/* Meta Pixel — global tracking */}
+        <MetaPixel />
+        <noscript>
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            src={`https://www.facebook.com/tr?id=${META_PIXEL_ID}&ev=PageView&noscript=1`}
+            alt=""
+          />
+        </noscript>
+
         {children}
         <script
           type="application/ld+json"

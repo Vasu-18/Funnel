@@ -1,13 +1,20 @@
 "use client";
 
+import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/sections/Footer";
 import BookingForm from "@/components/RegistrationForm";
 import ResultGallery from "@/components/sections/ResultGallery";
 import { CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
+import { trackEvent } from "@/lib/meta-pixel";
 
 export default function BookPage() {
+  // Fire ViewContent pixel event once on page load
+  useEffect(() => {
+    trackEvent("ViewContent", { content_name: "Book Consultation Page" });
+  }, []);
+
   return (
     <>
       <Navbar />

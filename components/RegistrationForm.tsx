@@ -7,6 +7,7 @@ import { CheckCircle, Loader2 } from "lucide-react";
 import CTAButton from "./CTAButton";
 import { cn } from "@/lib/utils";
 import { REVENUE_OPTIONS } from "@/constants/data";
+import { trackEvent } from "@/lib/meta-pixel";
 
 interface FormData {
   name: string;
@@ -28,8 +29,11 @@ export default function BookingForm() {
     reset,
   } = useForm<FormData>();
 
+  const [submitError, setSubmitError] = useState<string | null>(null);
+
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
+    setSubmitError(null);
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
@@ -44,10 +48,18 @@ export default function BookingForm() {
       if (response.ok) {
         setIsSuccess(true);
         reset();
-        // Option: keep success message or redirect to a thank you page later
+
+        // Fire Meta Pixel Lead conversion event
+        trackEvent("Lead", {
+          content_name: "Consultation Booking",
+          content_category: "Form Submission",
+        });
+      } else {
+        const errorData = await response.json();
+        setSubmitError(errorData.message || "Something went wrong. Please try again.");
       }
     } catch {
-      console.error("Form submission error");
+      setSubmitError("Failed to submit form. Please check your network connection.");
     } finally {
       setIsSubmitting(false);
     }
@@ -161,6 +173,12 @@ export default function BookingForm() {
                 />
                 {errors.startedBusinessYear && <p className="text-red-400 text-xs mt-1">{errors.startedBusinessYear.message}</p>}
               </div>
+
+              {submitError && (
+                <div className="p-3 bg-red-500/10 border border-red-500/50 rounded-xl text-red-400 text-sm text-center">
+                  {submitError}
+                </div>
+              )}
 
               <CTAButton type="submit" size="lg" className="w-full" pulse disabled={isSubmitting}>
                 {isSubmitting ? (
